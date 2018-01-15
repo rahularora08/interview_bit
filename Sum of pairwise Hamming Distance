@@ -1,0 +1,53 @@
+
+//the slow approach
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n;
+	long long int sum=0;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++ )
+	{
+		cin>>arr[i];
+	}
+	for(int j=0;j<n;j++)
+	{
+		for(int k=j;k<n;k++)
+		{   long long int q=arr[j]^arr[k];
+			sum+=(2*__builtin_popcount(q))%1000000007;
+		}
+	}
+	cout<<sum;
+}
+/
+*  Solution 1 - O(N)
+*
+* The total Hamming Distance is equal to the sum of all individual Hamming Distances
+* between every 2 numbers. However, given that this depends on the individual bits of
+* each number, we can see that we only need to compute the number of 1s and 0s for each
+* bit position. For example, we look at the least significant bit. Given that we need to
+* calculate the Hamming Distance for each pair of 2 numbers, we see that the answer is
+* equal to the number of 1s at this position * the number of 0s(which is the total number
+* of numbers - the number of 1s), because for each 1 we need to have a 0 to form a pair.
+* Thus, the solution is the sum of all these distances at every position.
+*/
+#define mod 1000000007
+int Solution::hammingDistance(const vector<int> &A) {
+   long long int ans = 0;
+    int count;
+    
+    for(int i = 0; i < 31; i++){
+        count = 0;
+        for(int j = 0; j < A.size(); j++){
+            if(A[j] & (1 << i)){
+                count++;
+            }
+        }
+        ans = ans + (2*count*(A.size()-count));
+        ans = ans%mod;
+    }
+    
+    return (int)ans;
+}
