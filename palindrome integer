@@ -1,0 +1,15 @@
+int Solution::isPalindrome(int A) {
+  int divisor=pow(10,log10(A));
+while (A != 0)
+    {
+        int x = A / divisor; 
+        int y = A % 10;
+ 
+        if (x != y)  
+            {// cout<<"False";
+			return 0;}
+        A = (A % divisor) / 10;
+        divisor = divisor / 100;
+    }
+    return 1;
+}
