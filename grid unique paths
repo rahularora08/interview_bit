@@ -1,0 +1,8 @@
+int Solution::uniquePaths(int a, int b) {
+    if (a == 1 || b == 1)
+        return 1;
+	else
+	{
+		return uniquePaths(a-1,b)+uniquePaths(a,b-1);
+	}
+}
