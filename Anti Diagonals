@@ -1,0 +1,16 @@
+vector<vector<int> > Solution::diagonal(vector<vector<int> > &A) {
+    int n=A.size();;
+    vector<vector<int> > b;
+    
+     for (int i = 0; i < 2 * n - 1; ++i) {
+       cout<<"[";
+    	int z = i < n ? 0 : i - n + 1;
+    	for (int j = z; j <= i - z; ++j) {
+    	  cout<<A[j][i - j]<<" ";
+    	           
+    	}
+    	cout<<"]"<<" ";
+     }
+     return b;
+
+}
