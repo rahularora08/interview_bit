@@ -1,0 +1,11 @@
+vector<int> Solution::getRow(int A) {
+    int a = 1;
+    cout<<a<<" ";
+    for(int i=1;i<=A;i++){
+        
+        a = (a*(A-i+1)/i);
+        cout<<a<<" ";
+    }
+    vector<int> V;
+    return V;
+}
