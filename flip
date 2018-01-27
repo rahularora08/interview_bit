@@ -1,0 +1,24 @@
+vector<int> Solution::flip(string A) {
+    int l = 0, lmax = -1, rmax = -1;
+    int maxi = 0, cmax = 0;
+    int len = A.length();
+    for(int i=0;i<len;i++) {
+        cmax += (A[i]=='0'?1:-1);
+        if(cmax>maxi) {
+            maxi = cmax;
+            lmax = l;
+            rmax = i;
+        }
+        if(cmax<0) {
+            l = i+1;
+            cmax = 0;
+        }
+    }
+    if(lmax == -1 || rmax == -1) {
+        return vector<int>(0, 0);
+    }
+    vector<int> t(2, 0);
+    t[0] = lmax+1;
+    t[1] = rmax+1;
+    return t;
+}
