@@ -1,0 +1,48 @@
+    unsigned long long concatenate(int x, int y) {
+    unsigned pow = 10;
+    while(y >= pow)
+        pow *= 10;
+    return (unsigned long long)x * pow + y;        
+}
+
+
+
+
+
+bool myfunction (int i,int j) { 
+    
+    return concatenate(i,j) > concatenate(j,i); 
+    
+}
+
+
+struct myclass {
+  bool operator() (int i,int j) { return (i<j);}
+} myobject;
+
+
+string Solution::largestNumber(const vector<int> &A) {
+    vector<int> B = A;
+    
+    sort(B.begin(),B.end(),myfunction);
+    
+    string s;
+    
+    if(B[0] == 0) {
+    
+     cout<<"0";return "";
+     
+    }
+    for(int i=0;i<B.size();++i){
+        
+        cout<<B[i];
+        
+    }
+    
+    return "";
+   
+   
+    
+   
+}
+
