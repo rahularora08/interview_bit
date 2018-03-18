@@ -1,0 +1,29 @@
+if (*head == NULL || (*head)->next == NULL)
+        return;
+ 
+    // Initialize previous and current pointers
+    LLNode *prev = *head;
+    LLNode *curr = (*head)->next;
+ 
+    *head = curr;  // Change head before proceeeding
+ 
+    // Traverse the list
+    while (true)
+    {
+        LLNode *next = curr->next;
+        curr->next = prev; // Change next of current as previous node
+ 
+        // If next NULL or next is the last node
+        if (next == NULL || next->next == NULL)
+        {
+            prev->next = next;
+            break;
+        }
+ 
+        // Change next of previous to next next
+        prev->next = next->next;
+ 
+        // Update previous and curr
+        prev = next;
+        curr = prev->next;
+    }
