@@ -1,0 +1,58 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ListNode* Solution::partition(ListNode* A, int B) {
+   struct ListNode * lessh = NULL, *greaterh = NULL, *lesst = NULL, *greatert= NULL;
+    
+    struct ListNode * temp = A;
+    
+    while(temp){
+        
+        if(temp->val < B){
+            
+            if(lessh == NULL){
+                lessh = temp;
+                lesst = temp;
+            }
+            else{
+                lesst->next = temp;
+                lesst = temp;
+            }
+            
+        }
+        
+        else{
+            
+            if(greaterh == NULL){
+                greaterh = temp;
+                greatert = temp;
+            }
+            else{
+                greatert->next = temp;
+                greatert = temp;
+            }
+            
+        }
+        temp = temp->next;
+    }
+    
+    if(lesst)
+        lesst->next = NULL;
+        
+    if(greatert)
+        greatert->next = NULL;
+        
+    if(lesst)
+        lesst->next = greaterh;
+        
+    if(lessh)
+        return lessh;
+        
+    else
+    return greaterh;
+}
