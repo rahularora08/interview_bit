@@ -1,0 +1,18 @@
+#define INT_SIZE 32
+int Solution::singleNumber(const vector<int> &A) {
+
+    int result=0,x,sum;
+    for(int i=0;i<INT_SIZE;i++)
+    {
+        sum=0;
+        x=(1<<i);
+        for(int j=0;j<A.size();j++)
+        {
+            if(A[j]&x)
+            sum++;
+        }
+        if(sum%3)
+        result|=x;
+    }
+    return result;
+}
