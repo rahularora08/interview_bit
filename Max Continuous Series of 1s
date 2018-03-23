@@ -1,0 +1,35 @@
+vector<int> Solution::maxone(vector<int> &A, int B) {
+    int n=A.size();
+    int leftptr=0,rightptr=0;
+    int indexleft=0,size=0,zeros=0;
+    while(rightptr<n)
+    {
+        if(zeros<=B)
+        {
+            if(A[rightptr]==0)
+              zeros++;
+            rightptr++;  
+                
+            
+        }
+        if(zeros>B)
+        {
+            if(A[leftptr]==0)
+             zeros--;
+        leftptr++;     
+        }
+        if(rightptr-leftptr>size)
+        {
+            size=rightptr-leftptr;
+            indexleft=leftptr;
+        }
+    }
+    vector<int > ans;
+    for(int i=0;i<size;i++)
+    {
+        ans.push_back(indexleft+i);
+    }
+    return ans;
+    
+    
+}
