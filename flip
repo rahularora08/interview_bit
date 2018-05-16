@@ -22,3 +22,46 @@ vector<int> Solution::flip(string A) {
     t[1] = rmax+1;
     return t;
 }
+
+ANOTHER SOLUTION (although same but slightly more clear implementation in the 2nd part)
+
+
+
+
+vector<int> Solution::flip(string A) {
+   int n=A.length();
+   vector <int> arr(n);
+   for(int i=0;i<n;i++)
+   {
+       if(A[i]=='1')
+        arr[i]=-1;
+       else
+        arr[i]=1;
+   }
+   int lmax=-1,rmax=-1,sum=0,ov_max=0,l=0;
+   for(int i=0;i<n;i++)
+   {
+       sum+=arr[i];
+       if(sum < 0)
+       {
+           sum=0;
+           l=i+1;
+       }
+       if(sum > ov_max)
+       {
+           ov_max=sum;
+           lmax=l;
+           rmax=i;
+           
+       }
+   }
+   if(lmax==-1 || rmax==-1)
+   {
+       return vector<int>(0,0);
+   }
+   vector <int > final(2,0);
+   final[0]=lmax+1;
+   final[1]=rmax+1;
+   return final;
+   
+}
