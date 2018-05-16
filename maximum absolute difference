@@ -19,3 +19,26 @@ int Solution::maxArr(vector<int> &A) {
     }
     return ans;
 }
+
+
+
+ANOTHER POSSIBLE SOLUTION 
+
+
+int Solution::maxArr(vector<int> &A) {
+    int max1=INT_MIN,min1=INT_MAX,max2=INT_MIN,min2=INT_MAX;
+    for(int i=0;i<A.size();i++)
+    {
+        int sum1=A[i]+i;
+        if(sum1>max1)
+         max1=sum1;
+        if(sum1<min1)
+         min1=sum1;
+        int sum2=A[i]-i;
+        if(sum2>max2)
+         max2=sum2;
+        if(sum2<min2)
+         min2=sum2;
+    }
+    return max(max1-min1,max2-min2);
+}
