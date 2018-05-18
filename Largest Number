@@ -1,4 +1,8 @@
-    unsigned long long concatenate(int x, int y) {
+  bool myfunction(int ,int);
+  unsigned long long concatenate(int,int);
+  
+  
+  unsigned long long concatenate(int x, int y) {
     unsigned pow = 10;
     while(y >= pow)
         pow *= 10;
@@ -16,15 +20,12 @@ bool myfunction (int i,int j) {
 }
 
 
-struct myclass {
-  bool operator() (int i,int j) { return (i<j);}
-} myobject;
 
 
 string Solution::largestNumber(const vector<int> &A) {
     vector<int> B = A;
     
-    sort(B.begin(),B.end(),myfunction);
+    sort(B.begin(),B.end(),myfunction); // sort using the defined function 
     
     string s;
     
