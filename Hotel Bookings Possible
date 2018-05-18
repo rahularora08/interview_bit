@@ -7,7 +7,7 @@ bool Solution::hotel(vector<int> &arrive, vector<int> &depart, int K) {
    {
        K--;
        a++;
-       if(K==0)
+       if(K==0) // until and unless room are empty allot the ariving customers rooms not used by any cusotmer
        {
            if(arrive[a]>=depart[d])
            {
