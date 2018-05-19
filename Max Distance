@@ -7,7 +7,7 @@ int Solution::maximumGap(const vector<int> &A) {
     l.push_back(A[0]);
     
     for(i=1;i<A.size();i++)
-        l.push_back(min(A[i],l[i-1]));
+        l.push_back(min(A[i],l[i-1])); // bucket the array in 2 arrays // first
     
     mini=A[A.size()-1];
     
@@ -15,7 +15,7 @@ int Solution::maximumGap(const vector<int> &A) {
     
     r[A.size()-1]=A[A.size()-1];
     
-    for(i=A.size()-2;i>=0;i--)
+    for(i=A.size()-2;i>=0;i--)// second bucket
         r[i]=max(r[i+1],A[i]);
 
     int diff = 0;
