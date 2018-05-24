@@ -1,0 +1,33 @@
+bool ispalindrome(string);
+int Solution::solve(string A) {
+    int n=A.length();
+    int count=0,flag=0;
+    while(n>0)
+    {
+        if(ispalindrome(A))
+        {
+            flag=1;
+            break;
+        }
+        else
+        {
+            count++;
+            A.erase(A.begin()+A.length()-1);
+        }
+    }
+    if(flag)
+     return count;
+}
+bool ispalindrome(string s)
+{
+    int len=s.length();
+    int j=len-1,i=0;
+   while(i<j)
+   {
+       if(s[i]!=s[j])
+        return 0;
+       i++;
+       j--;
+   }
+   return 1;
+}
