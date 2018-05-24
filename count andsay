@@ -1,0 +1,26 @@
+string read(string);
+string Solution::countAndSay(int A) {
+    string s="1";
+    while(A>1)
+    {
+        s=read(s);
+        A--;
+    }
+    return s;
+}
+string read(string s)
+{
+    string B="";
+    int count;
+    for(int i=0;i<s.length();i++)
+    {
+        count=1;
+        while(i+1<s.length()&&s[i]==s[i+1])
+        {
+            count++;
+            i++;
+        }
+        B=B+to_string(count)+s[i];
+    }
+    return B;
+}
